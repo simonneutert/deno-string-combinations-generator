@@ -1,6 +1,7 @@
 # string-combinations-generator
 
-A utility for generating all possible non-empty combinations and permutations of an array of strings.
+A utility for generating all possible non-empty combinations and permutations of
+an array of strings.
 
 ## Features
 
@@ -26,7 +27,8 @@ const combinations = generateStringCombinations(input);
 
 ### generateStringCombinations(input: string[]): string[]
 
-Returns all non-empty combinations and permutations of the input array, joined by commas.
+Returns all non-empty combinations and permutations of the input array, joined
+by commas.
 
 ## Development
 
@@ -39,4 +41,3 @@ deno test
 ## License
 
 MIT
-
