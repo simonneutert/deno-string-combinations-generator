@@ -32,12 +32,15 @@ function getAllNonEmptySubsets(arr: string[]): string[][] {
   return result;
 }
 
-export function generateStringCombinations(input: string[]): string[] {
+export function generateStringCombinations(
+  input: string[],
+  separator: string = ";",
+): string[] {
   const results: Set<string> = new Set();
   const subsets = getAllNonEmptySubsets(input);
   for (const subset of subsets) {
     for (const perm of permute(subset)) {
-      results.add(perm.join(","));
+      results.add(perm.join(separator));
     }
   }
   return Array.from(results);

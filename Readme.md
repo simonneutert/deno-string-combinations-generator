@@ -15,7 +15,9 @@ an array of strings.
 import { generateStringCombinations } from "jsr:@your-namespace/string-combinations-generator";
 
 const input = ["a", "b", "c"];
-const combinations = generateStringCombinations(input);
+// Generate combinations with custom separator,
+// the default is ";"
+const combinations = generateStringCombinations(input, ",");
 // combinations: [
 //   "a", "b", "c",
 //   "a,b", "a,c", "b,a", "b,c", "c,a", "c,b",
