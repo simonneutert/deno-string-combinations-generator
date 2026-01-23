@@ -27,10 +27,10 @@ const combinations = generateStringCombinations(input, ",");
 
 ## API
 
-### generateStringCombinations(input: string[]): string[]
+### generateStringCombinations(input: string[], separator: string): string[]
 
 Returns all non-empty combinations and permutations of the input array, joined
-by commas.
+by semicolons or your separator of choice.
 
 ## Development
 
