@@ -32,10 +32,23 @@ function getAllNonEmptySubsets(arr: string[]): string[][] {
   return result;
 }
 
+export function generateStringCombinationsSorted(
+  input: string[],
+  separator: string = ";",
+): Set<string> {
+  const results: Set<string> = new Set();
+  const subsets = getAllNonEmptySubsets(input);
+  for (const subset of subsets) {
+    // keep elements in their original input order for "sorted" combinations
+    results.add(subset.join(separator));
+  }
+  return results;
+}
+
 export function generateStringCombinations(
   input: string[],
   separator: string = ";",
-): string[] {
+): Set<string> {
   const results: Set<string> = new Set();
   const subsets = getAllNonEmptySubsets(input);
   for (const subset of subsets) {
@@ -43,5 +56,5 @@ export function generateStringCombinations(
       results.add(perm.join(separator));
     }
   }
-  return Array.from(results);
+  return results;
 }

@@ -18,11 +18,25 @@ const input = ["a", "b", "c"];
 // Generate combinations with custom separator,
 // the default is ";"
 const combinations = generateStringCombinations(input, ",");
-// combinations: [
+// combinations: new Set([
 //   "a", "b", "c",
 //   "a,b", "a,c", "b,a", "b,c", "c,a", "c,b",
 //   "a,b,c", "a,c,b", "b,a,c", "b,c,a", "c,a,b", "c,b,a"
-// ]
+// ])
+```
+
+```typescript
+import { generateStringCombinationsSorted } from "jsr:@your-namespace/string-combinations-generator";
+
+const input = ["a", "b", "c"];
+// Generate combinations with custom separator,
+// the default is ";"
+const combinations = generateStringCombinationsSorted(input, ",");
+// combinations: new Set([
+//   "a", "b", "c",
+//   "a,b", "a,c", "b,c",
+//   "a,b,c"
+// ])
 ```
 
 ## API

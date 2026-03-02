@@ -1,6 +1,36 @@
 import { assertEquals } from "@std/assert";
 
-import { generateStringCombinations } from "./mod.ts";
+import {
+  generateStringCombinations,
+  generateStringCombinationsSorted,
+} from "./mod.ts";
+
+Deno.test("generateStringCombinationsSorted returns all combinations for 'abc' with default separator ';'", () => {
+  const input = ["a", "b", "c"];
+  const expected = [
+    "a",
+    "b",
+    "c",
+    "a;b",
+    "a;c",
+    "b;c",
+    "a;b;c",
+  ];
+  const result = generateStringCombinationsSorted(input);
+  for (const combo of expected) {
+    if (!result.has(combo)) {
+      throw new Error(`Missing combination: ${combo}`);
+    }
+  }
+  if (result.size !== expected.length) {
+    throw new Error(
+      `Expected ${expected.length} combinations, got ${result.size}`,
+    );
+  }
+  assertEquals(result.size, expected.length);
+  assertEquals(new Set(result), new Set(expected));
+  assertEquals(Array.from(result).sort(), expected.sort());
+});
 
 Deno.test("generateStringCombinations returns all combinations for 'abc' with default separator ';'", () => {
   const input = ["a", "b", "c"];
@@ -23,18 +53,18 @@ Deno.test("generateStringCombinations returns all combinations for 'abc' with de
   ];
   const result = generateStringCombinations(input);
   for (const combo of expected) {
-    if (!result.includes(combo)) {
+    if (!result.has(combo)) {
       throw new Error(`Missing combination: ${combo}`);
     }
   }
-  if (result.length !== expected.length) {
+  if (result.size !== expected.length) {
     throw new Error(
-      `Expected ${expected.length} combinations, got ${result.length}`,
+      `Expected ${expected.length} combinations, got ${result.size}`,
     );
   }
-  assertEquals(result.length, expected.length);
+  assertEquals(result.size, expected.length);
   assertEquals(new Set(result), new Set(expected));
-  assertEquals(result.sort(), expected.sort());
+  assertEquals(Array.from(result).sort(), expected.sort());
 });
 
 Deno.test("generateStringCombinations returns all combinations for 'abc' with separator ','", () => {
@@ -58,16 +88,16 @@ Deno.test("generateStringCombinations returns all combinations for 'abc' with se
   ];
   const result = generateStringCombinations(input, ",");
   for (const combo of expected) {
-    if (!result.includes(combo)) {
+    if (!result.has(combo)) {
       throw new Error(`Missing combination: ${combo}`);
     }
   }
-  if (result.length !== expected.length) {
+  if (result.size !== expected.length) {
     throw new Error(
-      `Expected ${expected.length} combinations, got ${result.length}`,
+      `Expected ${expected.length} combinations, got ${result.size}`,
     );
   }
-  assertEquals(result.length, expected.length);
+  assertEquals(result.size, expected.length);
   assertEquals(new Set(result), new Set(expected));
-  assertEquals(result.sort(), expected.sort());
+  assertEquals(Array.from(result).sort(), expected.sort());
 });
