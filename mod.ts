@@ -39,8 +39,8 @@ export function generateStringCombinationsSorted(
   const results: Set<string> = new Set();
   const subsets = getAllNonEmptySubsets(input);
   for (const subset of subsets) {
-    // keep elements in their original input order for "sorted" combinations
-    results.add(subset.join(separator));
+    // sorts elements in subset to ensure consistent order and avoid duplicates
+    results.add(subset.sort().join(separator));
   }
   return results;
 }

@@ -30,7 +30,8 @@ import { generateStringCombinationsSorted } from "jsr:@your-namespace/string-com
 
 const input = ["a", "b", "c"];
 // Generate combinations with custom separator,
-// the default is ";"
+// the default is ";".
+// The results with be ordered lexicographically.
 const combinations = generateStringCombinationsSorted(input, ",");
 // combinations: new Set([
 //   "a", "b", "c",
